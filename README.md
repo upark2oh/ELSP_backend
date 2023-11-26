@@ -1,1 +1,2 @@
-# ELSP_backend
+### Chosun University Capstone Design 
+upark2oh / capstone_opic_backend
