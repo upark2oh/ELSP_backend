@@ -14,17 +14,9 @@ from .views.quiz_views import(
     ImpromptuTopicCreateView,
     ImpromptuTopicDeleteView,
 )
-from .views.auth_views import(
-    RegisterView, 
-    UserProfileView, 
-    LogoutView, 
-    UserDeleteAPIView,
-)
-from .views.corrected_response_views import (
-    CorrectionView,
-    AudioUploadView,
-    SimilarityView,
-)
+from .views.auth_views import RegisterView, UserProfileView, LogoutView, UserDeleteAPIView
+from .views.corrected_response_views import CorrectionView, AudioUploadView, SimilarityView
+from .views.result_views import ResponseListCreateView, UserListView
 
 urlpatterns = [
     #특정 질문 조회
@@ -61,4 +53,8 @@ urlpatterns = [
     path('get-corrected-response/', CorrectionView.as_view(), name='get-corrected-response'),
     path('get-similarity/', SimilarityView.as_view(), name='get-similarity'),
     path('upload-audio/', AudioUploadView.as_view(), name='audio-upload'),
+
+    #답변 저장
+    path('responses/', ResponseListCreateView.as_view(), name='response-list-create'),
+    path('list-page/', UserListView.as_view(), name='list-page'),
 ]

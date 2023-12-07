@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 class BaseQuiz(models.Model):
     section = models.CharField(max_length=100)
@@ -71,3 +72,14 @@ class SurveyTopicbyUser(models.Model):
 class ImpromptuTopicbyUser(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     topic = models.CharField(max_length=100, choices=ImpromptuQuiz.IMRPOMPTU_TOPIC_CHOICES)
+
+class ResponseModel(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    topic = models.CharField(max_length=100, choices=ImpromptuQuiz.IMRPOMPTU_TOPIC_CHOICES)
+    question = models.TextField()
+    user_response = models.TextField()
+    corrected_response = models.TextField()
+    recording_time = models.CharField(max_length=255)
+    accuracy = models.FloatField()
+    similarity = models.FloatField()
+    current_date = models.CharField(max_length=255)
