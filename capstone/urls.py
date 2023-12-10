@@ -16,7 +16,7 @@ from .views.quiz_views import(
 )
 from .views.auth_views import RegisterView, UserProfileView, LogoutView, UserDeleteAPIView
 from .views.corrected_response_views import CorrectionView, AudioUploadView, SimilarityView
-from .views.result_views import ResponseListCreateView, UserListView
+from .views.result_views import ResponseListCreateView, UserListView, UserFeedbackView, DeleteItemView
 
 urlpatterns = [
     #특정 질문 조회
@@ -57,4 +57,6 @@ urlpatterns = [
     #답변 저장
     path('responses/', ResponseListCreateView.as_view(), name='response-list-create'),
     path('list-page/', UserListView.as_view(), name='list-page'),
+    path('delete-item/', DeleteItemView.as_view(), name='delete-page'),
+    path('feedback/', UserFeedbackView.as_view(), name='get-user-feedback'),
 ]

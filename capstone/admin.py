@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ImpromptuQuiz, SurveyQuiz, SurveyTopicbyUser, ImpromptuTopicbyUser, ResponseModel
+from .models import ImpromptuQuiz, SurveyQuiz, SurveyTopicbyUser, ImpromptuTopicbyUser, ResponseModel, UserFeedbackModel
 
 @admin.register(SurveyTopicbyUser)
 class SurveyTopicAdmin(admin.ModelAdmin):
@@ -26,3 +26,7 @@ class ImpromptuQuizAdmin(admin.ModelAdmin):
 @admin.register(ResponseModel)
 class ResponseAdmin(admin.ModelAdmin):
     list_display = ('user','question', 'user_response', 'corrected_response', 'recording_time', 'accuracy', 'similarity')
+
+@admin.register(UserFeedbackModel)
+class UserFeedbackModelAdmin(admin.ModelAdmin):
+    list_display = ('user_answer', 'corrected_answer')

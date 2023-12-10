@@ -3,7 +3,7 @@ from .models import ImpromptuQuiz, SurveyQuiz
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth.models import User
-from .models import SurveyTopicbyUser, ImpromptuTopicbyUser, ResponseModel
+from .models import SurveyTopicbyUser, ImpromptuTopicbyUser, ResponseModel, UserFeedbackModel
 #돌발주제조회
 class ImpromptuQuizSerializer(serializers.ModelSerializer):
     class Meta:
@@ -82,4 +82,9 @@ class ResponseSerializer(serializers.ModelSerializer):
     user = serializers.CharField()  # 사용자 ID를 문자열로 처리
     class Meta:
         model = ResponseModel
+        fields = ("__all__")
+
+class UserFeedbackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserFeedbackModel
         fields = ("__all__")

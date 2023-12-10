@@ -83,3 +83,7 @@ class ResponseModel(models.Model):
     accuracy = models.FloatField()
     similarity = models.FloatField()
     current_date = models.CharField(max_length=255)
+
+class UserFeedbackModel(models.Model):
+    user_answer = models.TextField()
+    corrected_answer = models.TextField()
